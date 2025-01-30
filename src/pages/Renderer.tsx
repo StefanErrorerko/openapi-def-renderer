@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { OpenAPIDocument, Operation } from '../types/types';
 import Path from './Path';
-import RefResolver from './RefResolver';
+import Information from './Information';
+import RefResolver from '../services/RefResolver';
 import '../index.css';
 
 interface RendererProps {
@@ -61,21 +62,11 @@ const Renderer: React.FC<RendererProps> = ({ spec }) => {
       );
     }
 
-    switch (activeTab) {
-      case 'info':
-        return (
-          <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4">API Information</h2>
-            {Object.entries(spec.info).map(([key, value]) => (
-              <div key={key} className="mb-3">
-                <strong className="capitalize">{key}:</strong>{' '}
-                {typeof value === 'object' ? JSON.stringify(value, null, 2) : value}
-              </div>
-            ))}
-          </div>
-        );
-      // ... other cases remain the same
+    if (activeTab === 'info') {
+      return <Information spec={spec} />;
     }
+
+    return null;
   };
 
   return (
@@ -88,18 +79,8 @@ const Renderer: React.FC<RendererProps> = ({ spec }) => {
           Information
         </div>
         <div
-          className={`nav-item ${activeTab === 'servers' ? 'active' : ''}`}
-          onClick={() => handleTabClick('servers')}
+          className={`paths-list expanded`}
         >
-          Servers
-        </div>
-        <div
-          className={`nav-item ${activeTab === 'paths' ? 'active' : ''}`}
-          onClick={() => handleTabClick('paths')}
-        >
-          Endpoints
-        </div>
-        <div className={`paths-list ${activeTab === 'paths' ? 'expanded' : ''}`}>
           {getAllPathMethods().map(({ path, method, operation }) => (
             <div
               key={`${path}-${method}`}

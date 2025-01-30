@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import * as openApiParser from '../services/JsonDefParser';
 import { OpenAPIDocument, PathItem, Operation } from '../types/types';
-import Renderer from '../services/Renderer';
+import Renderer from './Renderer';
 
 const APIDefinitionRenderer: React.FC = () => {
   const [apiSpec, setApiSpec] = useState<OpenAPIDocument | null>(null);

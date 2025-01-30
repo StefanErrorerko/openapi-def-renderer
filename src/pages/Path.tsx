@@ -1,6 +1,6 @@
 import React from 'react';
 import { Operation, ReferenceObject, SchemaObject, RequestBody, ResponseObject } from '../types/types';
-import RefResolver from './RefResolver';
+import RefResolver from '../services/RefResolver';
 
 interface PathProps {
   path: string;
