@@ -11,3 +11,205 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  width: 300px;
+  min-width: 300px;
+  height: 100%;
+  border-right: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  overflow-y: auto;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.nav-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background-color: #f3f4f6;
+}
+
+.nav-item.active {
+  background-color: #dbeafe;
+}
+
+.paths-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #ffffff;
+}
+
+.paths-list.expanded {
+  max-height: 100vh;
+}
+
+.path-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.path-item:hover {
+  background-color: #f3f4f6;
+}
+
+.path-item.selected {
+  background-color: #f8fafc;
+  border-left: 3px solid #2563eb;
+}
+
+.path-text {
+  font-family: monospace;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.path-summary {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+  margin-left: 52px;
+}
+
+.method-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  min-width: 44px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.method-get {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.method-post {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.method-put {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.method-delete {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.content-block {
+  margin-bottom: 24px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.block-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.code-block {
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  padding: 16px;
+  color: #d4d4d4;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  overflow-x: auto;
+}
+
+.code-header {
+  color: #94a3b8;
+  font-size: 12px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  margin-bottom: 8px;
+}
+
+.tag-item {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #e0e7ff;
+  color: #4338ca;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.param-name {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 4px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  margin-right: 8px;
+}
+
+.param-type {
+  color: #569cd6;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+}
+
+.response-code {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.response-code.success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.response-code.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.response-code.warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.main-path-content {
+  padding: 24px;
+  margin-left: 300px;
+}
+
+.param-required {
+  color: #ef4444;
+  margin-left: 4px;
+  font-weight: bold;
+}
